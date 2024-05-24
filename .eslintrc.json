@@ -1,0 +1,64 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "rules": {
+        "brace-style": ["warn", "1tbs"],
+        "camelcase": ["warn", {
+            "properties": "never",
+            "ignoreImports": true
+        }],
+        "comma-dangle": ["error", "never"],
+        "comma-style": ["warn", "last"],
+        "eol-last": ["warn", "always"],
+        "indent": ["warn", 4, {
+            "SwitchCase": 1
+        }],
+        "keyword-spacing": ["warn", {
+            "after": true,
+            "before": true
+        }],
+        "no-multi-spaces": 1,
+        "no-multiple-empty-lines": ["warn", { 
+            "max": 1
+        }],
+        "no-trailing-spaces": 1,
+        "no-unused-vars": 1,
+        "no-useless-escape": 0,
+        "object-shorthand": ["warn", "consistent"],
+        "quotes": ["warn", "double", {
+            "allowTemplateLiterals": true,
+            "avoidEscape": false
+        }],
+        "semi": "error",
+        "semi-style": ["warn", "last"],
+        "sort-imports": ["warn", {
+            "ignoreCase": false,
+            "ignoreDeclarationSort": true
+        }],
+        "@typescript-eslint/member-delimiter-style": ["warn", {
+            "multiline": {
+              "delimiter": "semi",
+              "requireLast": true
+            },
+            "singleline": {
+              "delimiter": "semi",
+              "requireLast": false
+            },
+            "multilineDetection": "brackets"
+        }],
+        "@typescript-eslint/no-var-requires": 0
+    },
+    "ignorePatterns": ["*.js"]
+}

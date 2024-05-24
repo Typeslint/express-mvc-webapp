@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+    id         Int         @id @default(autoincrement())
+    email      String      @unique
+    username   String      @unique
+    password   String
+    Profile    Profile?
+    Membership Membership?
+    Order      Order[]
+
+    @@map("users")
+}
+
+model Profile {
+    id              Int     @id @default(autoincrement())
+    userId          Int     @unique
+    address         String?
+    phone           String?
+    photo           String?
+    backgroundphoto String?
+    user            User    @relation(fields: [userId], references: [id])
+
+    @@map("profiles")
+}
+
+model Membership {
+    id        Int      @id @default(autoincrement())
+    userId    Int      @unique
+    is_member Boolean? @default(false)
+    type      String?  @default("undefined")
+    user      User     @relation(fields: [userId], references: [id])
+
+    @@map("memberships")
+}
+
+model Order {
+    id       Int       @id @default(autoincrement())
+    userId   Int
+    name     String?
+    phone    String?
+    address  String?
+    qty      Int?
+    services String?
+    delivery String?
+    total    Int?
+    tanggal  DateTime? @db.Timestamptz()
+    user     User      @relation(fields: [userId], references: [id])
+
+    @@map("orders")
+}
+
+model session {
+    sid    String   @id @db.VarChar()
+    sess   Json     @db.Json
+    expire DateTime @db.Timestamptz()
+}

@@ -1,0 +1,193 @@
+/* 
+* © 2022 Muunatic. All rights reserved.
+*/
+
+* {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -o-user-select: none !important;
+    -ms-user-select: none !important;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    user-select: none;
+    letter-spacing: 1px;
+    color: #14142B;
+}
+
+p {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+hr {
+    color: white;
+}
+
+table, th, td {
+    padding: 1rem;
+    border: 1px solid black;
+}
+
+.main {
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.mainNavbar {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow: hidden;
+    padding-top: 2.5rem;
+    padding-right: 5rem;
+    padding-left: 5rem;
+    padding-bottom: 2.5rem;
+}
+
+.mainNavbar .mainNavbarLeft {
+    float: left;
+}
+
+.mainNavbar .mainNavbarLeft .navbarLeft {
+    display: inline-block;
+    margin-top: auto;
+    margin-bottom: auto;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.mainNavbar .mainNavbarLeft .navbarLeft .logoLaundryku {
+    vertical-align: middle;
+    width: 256px;
+}
+
+.mainNavbar .mainNavbarRight {
+    padding: 1.25rem;
+    float: right;
+}
+
+.mainNavbar .mainNavbarRight .navbarRight {
+    display: inline-block;
+    margin-top: auto;
+    margin-bottom: auto;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.mainNavbar .mainNavbarRight .navbarRight .navbarOther {
+    margin-top: auto;
+    margin-bottom: auto;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.mainNavbar .mainNavbarRight .navbarRight .navbarOther p {
+    margin-top: auto;
+    margin-bottom: auto;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 32px;
+}
+
+.mainNavbar .mainNavbarRight .navbarRight .navbarLoginRegister {
+    cursor: pointer;
+    color: white !important;
+    margin-left: 32px;
+    background-color: #21B7E2;
+    border-radius: 10px;
+    display: inline-block;
+    transition: ease 0.5s;
+}
+
+.mainNavbar .mainNavbarRight .navbarRight .navbarLoginRegister:hover {
+    box-shadow: 0px 0px 20px 1px #21B7E2;
+}
+
+.mainNavbar .mainNavbarRight .navbarRight .navbarLoginRegister p {
+    color: white !important;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.mainNavbar .mainNavbarRight .navbarRight .navbarLoginRegister a {
+    color: white !important;
+}
+
+.mainProfile {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+.userProfileWrapper {
+    background-color: greenyellow;
+    height: 100%;
+}
+
+.mainProfile .userProfileWrapper .bannerProfile {
+    max-width: 100vw;
+}
+
+.mainProfile .userProfileWrapper .bannerProfile .bannerImg {
+    background-color: wheat;
+    height: 144px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.mainProfile .userProfileWrapper .userMainProfile {
+    margin: 2.5rem;
+    text-align: center;
+}
+
+.mainProfile .userProfileWrapper .userMainProfile .userImg {
+    margin-bottom: 2.5rem;
+    height: 144px;
+    width: 144px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.mainProfile .userProfileWrapper .userProfile .userOtherProfile {
+    margin: 2.5rem;
+    text-align: left;
+}
+
+.mainProfile .userProfileWrapper .userProfile .userOtherProfile p {
+    font-size: 12px;
+    margin-top: 1rem;
+}
+
+.mainProfile .orderHistroyWrapper {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mainProfile .orderHistroyWrapper .orderHistory {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+}
+
+.mainProfile .orderHistroyWrapper .orderHistory .orderHistoryTitle {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}

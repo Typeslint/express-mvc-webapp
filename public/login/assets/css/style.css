@@ -1,0 +1,100 @@
+/* 
+* © 2022 Muunatic. All rights reserved.
+*/
+
+* {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -o-user-select: none !important;
+    -ms-user-select: none !important;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+body {
+    user-select: none;
+    letter-spacing: 1px;
+    color: black;
+    background-color: #303030;
+}
+
+p {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+hr {
+    color: white;
+}
+
+input {
+    padding: 0.5rem;
+    border: none;
+    outline: none;
+}
+
+/* .main {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+    max-width: 55vw;
+} */
+
+.main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: #eeefff;
+}
+
+.mainlogin {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.mainForm {
+
+}
+
+.mainlogin .leftSide {
+    overflow: hidden;
+    width: 100%;
+    height: 480px;
+}
+
+.mainlogin .leftSide .leftImage {
+    object-position: -100px 0px;
+    object-fit: cover;
+    max-height: 100%;
+}
+
+.mainlogin .rightSide .helloWorld {
+    margin-top: 2.5rem;
+    margin-left: 5rem;
+}
+
+.mainlogin .rightSide .mainForm .formTitle {
+    margin-top: 2.5rem;
+    text-align: center;
+}
+
+.mainlogin .rightSide .mainForm .inputUser {
+    margin-top: 2.5rem;
+    margin-left: 5rem;
+    width: 100%;
+}

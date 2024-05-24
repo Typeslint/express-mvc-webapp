@@ -1,0 +1,82 @@
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    z-index: 2147483647
+}
+
+#status {
+    position: absolute;
+    left: 53%;
+    top: 52%;
+    margin: -100px 0 0 -100px;
+}
+
+@-moz-keyframes uil-ring-anim {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@-webkit-keyframes uil-ring-anim {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@-o-keyframes uil-ring-anim {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes uil-ring-anim {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+.uil-ring-css {
+    background: 0 0;
+    position: relative;
+    width: 200px;
+    height: 200px
+}
+
+.uil-ring-css > div {
+    position: absolute;
+    display: block;
+    width: 160px;
+    height: 160px;
+    top: 20px;
+    left: 20px;
+    border-radius: 80px;
+    box-shadow: 0 3px 0 0 #59ebff;
+    -webkit-transform-origin: 80px 81.5px;
+    transform-origin: 80px 81.5px;
+    -webkit-animation: uil-ring-anim 2s linear infinite;
+    animation: uil-ring-anim 2s linear infinite
+}

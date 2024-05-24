@@ -1,0 +1,601 @@
+/* 
+* © 2022 Muunatic. All rights reserved.
+*/
+
+* {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -o-user-select: none !important;
+    -ms-user-select: none !important;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    user-select: none;
+    letter-spacing: 1px;
+    color: #14142B;
+}
+
+p {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+hr {
+    color: white;
+}
+
+.hrstyle {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.main {
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.mainNavbar {
+    overflow: hidden;
+    padding-top: 2.5rem;
+    padding-right: 5rem;
+    padding-left: 5rem;
+    padding-bottom: 2.5rem;
+}
+
+.mainNavbar .mainNavbarLeft {
+    float: left;
+}
+
+.mainNavbar .mainNavbarLeft .navbarLeft {
+    display: inline-block;
+    margin-top: auto;
+    margin-bottom: auto;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.mainNavbar .mainNavbarLeft .navbarLeft .logoLaundryku {
+    vertical-align: middle;
+    width: 256px;
+}
+
+.mainNavbar .mainNavbarRight {
+    padding: 1.25rem;
+    float: right;
+}
+
+.mainNavbar .mainNavbarRight .navbarRight {
+    display: inline-block;
+    margin-top: auto;
+    margin-bottom: auto;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.mainNavbar .mainNavbarRight .navbarRight .navbarOther {
+    margin-top: auto;
+    margin-bottom: auto;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.mainNavbar .mainNavbarRight .navbarRight .navbarOther p {
+    margin-top: auto;
+    margin-bottom: auto;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 32px;
+}
+
+.mainNavbar .mainNavbarRight .navbarRight .navbarLoginRegister {
+    cursor: pointer;
+    color: white !important;
+    margin-left: 32px;
+    background-color: #21B7E2;
+    border-radius: 10px;
+    display: inline-block;
+    transition: ease 0.5s;
+}
+
+.mainNavbar .mainNavbarRight .navbarRight .navbarLoginRegister:hover {
+    box-shadow: 0px 0px 20px 1px #21B7E2;
+}
+
+.mainNavbar .mainNavbarRight .navbarRight .navbarLoginRegister p {
+    color: white !important;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.mainNavbar .mainNavbarRight .navbarRight .navbarLoginRegister a {
+    color: white !important;
+}
+
+.mainContent {
+    margin-left: 112px;
+    margin-right: 112px;
+    margin-bottom: 5rem;
+}
+
+.mainContent .content1 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-bottom: 5rem;
+}
+
+.mainContent .content1 .leftContent {
+    font-weight: bold;
+    vertical-align: middle;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.mainContent .content1 .leftContent .leftDesc {
+    font-size: 20px;
+    font-weight: 400;
+    text-align: justify;
+    width: 70%;
+}
+
+.mainContent .content1 .leftContent .leftTitle {
+    width: 80%;
+    font-weight: bolder;
+    font-size: 48px;
+    margin-bottom: 32px;
+}
+
+.mainContent .content1 .leftContent .leftButton {
+    cursor: pointer;
+    background-color: #21B7E2;
+    color: white;
+    border-radius: 10px;
+    width: max-content;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 32px;
+    transition: ease 0.5s;
+}
+
+.mainContent .content1 .leftContent .leftButton:hover {
+    box-shadow: 0px 0px 20px 0px #21B7E2;
+}
+
+.mainContent .content1 .rightContent {
+    text-align: right;
+    margin-left: 360px;
+}
+
+.mainContent .content1 .rightContent .washerPhoto  {
+    width: 512px;
+}
+
+.mainContent .content2 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-bottom: 15rem;
+}
+
+.mainContent .content2 .leftContent {
+    font-weight: bold;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.mainContent .content2 .leftContent .leftWrapper {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 512px;
+}
+
+.mainContent .content2 .leftContent .leftWrapper .leftImage {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 512px;
+}
+
+.mainContent .content2 .rightContent {
+    font-weight: bold;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: right;
+}
+
+.mainContent .content2 .rightContent .rightWrapper {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: right;
+    width: 512px;
+}
+
+.mainContent .content2 .rightContent .rightWrapper .rightTitle {
+    font-weight: bolder;
+    margin-bottom: 16px;
+    text-align: justify;
+}
+
+.mainContent .content2 .rightContent .rightWrapper .rightDescription {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.mainContent .content2 .rightContent .rightWrapper p {
+    text-align: justify;
+    margin-top: 16px;
+}
+
+.mainContent .content3 {
+    background-image: url(../img/image2.png) !important;
+    background-repeat: no-repeat;
+    object-fit: fill;
+    position: relative;
+    margin-top: -5rem;
+    margin-bottom: -5rem;
+    margin-left: -15rem;
+    margin-right: -15rem;
+}
+
+.mainContent .content3 .mainContent3 {
+    color: black;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.mainContent .content3 .mainContent3 .contentTitle3 {
+    text-align: center;
+    font-weight: bolder;
+    color: black;
+}
+
+.mainContent .content3 .mainContent3 .contentDescription3 {
+    text-align: center;
+    margin-top: 1rem;
+    color: black;
+}
+
+.mainContent .content3 .mainContent3 .contentStep3 {
+    text-align: center;
+    font-weight: bolder;
+    margin-top: 2.5rem;
+    color: black;
+}
+
+.mainContent .content3 .mainContent3 .contentStep3 .contentBox3 {
+    border: solid white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 1rem;
+    width: 240px;
+    height: 280px;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.mainContent .content3 .mainContent3 .contentStep3 .contentBox3 .stepBox {
+    color: #21B7E2;
+    margin-bottom: 1rem;
+}
+
+.mainContent .content3 .mainContent3 .contentStep3 .contentBox3 .stepImg {
+    height: 144px !important;
+    width: 144px !important;
+    object-fit: cover;
+}
+
+.mainContent .content4 {
+    margin-top: 5rem;
+    margin-bottom: -5rem;
+    padding-bottom: 5rem;
+}
+
+.mainContent .content4 .mainContent4 {
+    text-align: center;
+    margin-top: 10rem;
+}
+
+.mainContent .content4 .mainContent4 .titleContent4 {
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 10rem;
+}
+
+.mainContent .content4 .mainContent4 .descContent4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.mainContent .content4 .mainContent4 .contentBox4 .titleBox {
+    font-weight: bolder;
+    margin-top: 1rem;
+}
+
+.mainContent .content4 .mainContent4 .contentBox4 .descBox {
+    margin-top: 1rem;
+    font-size: 12px;
+}
+
+.mainContent .content4 .mainContent4 .contentBox4 .imgWrap {
+    width: 144px;
+    height: 144px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mainContent .content4 .mainContent4 .contentBox4 .imgWrap .stepImg {
+    width: 144px;
+    height: 144px;
+    object-fit: fill;
+    vertical-align: middle;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.mainContent .content4 .mainContent4 .contentBox4 {
+    color: black;
+    border: solid white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    width: 360px;
+    height: 360px;
+    margin-top: 2.5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.mainContent .content5 {
+    margin-top: 5rem;
+    margin-bottom: -5rem;
+    padding-bottom: 5rem;
+}
+
+.mainContent .content5 .mainContent5 {
+    text-align: center;
+}
+
+.mainContent .content5 .mainContent5 .titleContent5 {
+    font-weight: bolder;
+    text-align: center;
+}
+
+.mainContent .content5 .mainContent5 .descContent5 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.mainContent .content5 .mainContent5 .contentBox5 {
+    top: 0;
+    position: relative;
+    transition: top ease 0.75s, background-color ease 0.75s, border ease 0.75s;
+    color: black;
+    border: solid white 2px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: white;
+    border-radius: 20px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    width: 360px;
+    height: max-content;
+    margin-top: 2.5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+
+.mainContent .content5 .mainContent5 .contentBox5:hover {
+    border: solid #D0F6FF 2px;
+    background-color: #D0F6FF;
+    top: -25px
+}
+
+.mainContent .content5 .mainContent5 .contentBox5 .contentTitle {
+    vertical-align: middle;
+    text-align: left;
+}
+
+.mainContent .content5 .mainContent5 .contentBox5 .contentTitle img {
+    vertical-align: middle;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+}
+
+.mainContent .content5 .mainContent5 .contentBox5 .contentTitle h1 {
+    color: #21B7E2;
+    font-size: 28px;
+    height: 28px;
+    font-weight: 900;
+    vertical-align: middle;
+    font-weight: bolder;
+    display: inline-block;
+}
+
+.mainContent .content5 .mainContent5 .contentBox5 .contentDesc {
+    text-align: left;
+    color: black;
+    height: 72px;
+    font-size: 14px;
+    margin-top: 1rem;
+    margin-left: 40px;
+}
+
+.mainContent .content5 .mainContent5 .contentBox5 .contentDescGrey {
+    text-align: left;
+    color: grey;
+    margin-top: 1rem;
+}
+
+.mainContent .content5 .mainContent5 .contentBox5 .contentDescOther {
+    font-size: 14px;
+    text-align: left;
+    color: black;
+    margin-top: 1rem;
+}
+
+.mainContent .content5 .mainContent5 .contentBox5 .contentDescOther p {
+    margin-top: 0.5rem;
+}
+
+.mainContent .content5 .mainContent5 .contentBox5 .contentBox5HR {
+    border-top: 2px dashed grey;
+    border-bottom: 0;
+}
+
+.mainContent .content5 .mainContent5 .contentBox5 .contentBox5Price {
+    text-align: left;
+}
+
+.mainContent .content5 .mainContent5 .contentBox5 .contentBox5Price p .price {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.mainContent .content5 .mainContent5 .contentBox5 .contentBox5Price span {
+    display: inline-block;
+    font-size: 14px;
+}
+
+.mainContent .content5 .mainContent5 .contentBox5 .contentBox5Price {
+    text-align: left;
+}
+
+.mainContent .content5 .mainContent5 .contentBox5 .contentBox5Buy {
+    cursor: pointer;
+    margin-top: 1rem;
+    border-radius: 10px;
+    background-color: #21B7E2;
+    padding: 1rem;
+    text-align: center;
+    transition: ease 0.75s;
+}
+
+/* .mainContent .content5 .mainContent5 .contentBox5 .contentBox5Buy:hover {
+    box-shadow: 0px 0px 20px 0px #21B7E2;
+} */
+
+.mainContent .content5 .mainContent5 .contentBox5 .contentBox5Buy p {
+    font-weight: 600;
+    color: white;
+}
+
+.mainContent .content6 {
+    margin-top: 5rem;
+    margin-bottom: -5rem;
+}
+
+.mainContent .content6 .mainContent6 {
+    text-align: center;
+    margin-top: 10rem;
+}
+
+.mainContent .content6 .mainContent6 .mainHeader6 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-top: -5rem;
+    margin-left: -15rem;
+    margin-right: -15rem;
+    height: 720px;
+    background-image: url(../img/image3.png);
+    background-repeat: no-repeat;
+}
+
+.mainContent .content6 .mainContent6 .mainHeader6 .headerLeft {
+    vertical-align: middle;
+    margin-top: auto;
+    margin-bottom: auto;
+    align-items: center;
+}
+
+.mainContent .content6 .mainContent6 .mainHeader6 .headerLeft .headerLeftWrapper {
+    margin-top: 10rem;
+    margin-left: 20rem;
+    text-align: center;
+}
+
+.mainContent .content6 .mainContent6 .mainHeader6 .headerLeft .headerLeftWrapper .mainTitle6 {
+    font-size: 40px;
+    font-weight: bolder;
+    color: black;
+}
+
+.mainContent .content6 .mainContent6 .mainHeader6 .headerLeft .headerLeftWrapper .mainWrapperButton6 {
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+    text-align: center;
+    margin-top: 1rem;
+    background-color: #21B7E2;
+    color: white;
+    border-radius: 10px;
+    margin-top: 2.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.mainContent .content6 .mainContent6 .mainHeader6 .headerLeft .headerLeftWrapper .mainWrapperButton6 .mainButton6 {
+    text-align: center;
+}
+
+.mainContent .content6 .mainContent6 .mainHeader6 .headerLeft .headerLeftWrapper .mainWrapperButton6 {
+    text-align: center;
+    transition: ease 0.5s;
+}
+
+.mainContent .content6 .mainContent6 .mainHeader6 .headerLeft .headerLeftWrapper .mainWrapperButton6:hover {
+    box-shadow: 0px 0px 20px 0px #21B7E2;
+}
+
+.mainContent .content6 .mainContent6 .mainHeader6 .headerRight .headerImg {
+    margin-top: 10rem;
+    width: 512px;
+    text-align: right;
+}

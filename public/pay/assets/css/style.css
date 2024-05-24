@@ -1,0 +1,316 @@
+/* 
+* © 2022 Muunatic. All rights reserved.
+*/
+
+* {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -o-user-select: none !important;
+    -ms-user-select: none !important;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    user-select: none;
+    letter-spacing: 1px;
+    color: #14142B;
+}
+
+p {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+hr {
+    color: grey;
+}
+
+input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+}
+
+input[type="range"]::-moz-range-track {
+    height: 10px;
+    background: #D2D1D1;
+    border-radius: 100px;
+}
+
+input[type="range"]::-moz-range-progress {
+    height: 10px;
+    border-radius: 100px;
+    background: #21B7E2;
+}
+
+input[type="range"]::-moz-range-thumb {
+    border-radius: 100%;
+    width: 10px;
+    height: 10px;
+    background-color: #D2D1D1;
+    outline: 1px solid #D2D1D1;
+    border: 7px solid white;
+}
+
+.rangeValue {
+    margin-left: 1rem;
+}
+
+.hrstyle {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.main {
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.mainNavbar {
+    overflow: hidden;
+    padding-top: 2.5rem;
+    padding-right: 5rem;
+    padding-left: 5rem;
+    padding-bottom: 2.5rem;
+}
+
+.mainNavbar .mainNavbarLeft {
+    float: left;
+}
+
+.mainNavbar .mainNavbarLeft .navbarLeft {
+    display: inline-block;
+    margin-top: auto;
+    margin-bottom: auto;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.mainNavbar .mainNavbarLeft .navbarLeft .logoLaundryku {
+    vertical-align: middle;
+    width: 256px;
+}
+
+.mainNavbar .mainNavbarRight {
+    padding: 1.25rem;
+    float: right;
+}
+
+.mainNavbar .mainNavbarRight .navbarRight {
+    display: inline-block;
+    margin-top: auto;
+    margin-bottom: auto;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.mainNavbar .mainNavbarRight .navbarRight .navbarOther {
+    margin-top: auto;
+    margin-bottom: auto;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.mainNavbar .mainNavbarRight .navbarRight .navbarOther p {
+    margin-top: auto;
+    margin-bottom: auto;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 32px;
+}
+
+.mainNavbar .mainNavbarRight .navbarRight .navbarLoginRegister {
+    cursor: pointer;
+    color: white !important;
+    margin-left: 32px;
+    background-color: #21B7E2;
+    border-radius: 10px;
+    display: inline-block;
+    transition: ease 0.5s;
+}
+
+.mainNavbar .mainNavbarRight .navbarRight .navbarLoginRegister:hover {
+    box-shadow: 0px 0px 20px 1px #21B7E2;
+}
+
+.mainNavbar .mainNavbarRight .navbarRight .navbarLoginRegister p {
+    color: white !important;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.mainNavbar .mainNavbarRight .navbarRight .navbarLoginRegister a {
+    color: white !important;
+}
+
+.mainContent {
+    margin-left: 112px;
+    margin-right: 112px;
+    margin-bottom: 5rem;
+}
+
+.mainContent .mainTitle {
+    margin-bottom: 5rem;
+}
+
+.mainContent .mainTitle p {
+    font-weight: 900;
+    font-size: 56px;
+}
+
+.mainContent .mainInfo {
+    border-radius: 20px;
+    padding: 2.5rem;
+    background-color: #E7FAFF;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    row-gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.mainContent .mainInfo span {
+    color: #747e81;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.mainContent .mainInfo p {
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.mainContent .mainInfo .leftGrid {
+    text-align: left;
+}
+
+.mainContent .mainInfo .rightGrid {
+    text-align: right;
+}
+
+.mainContent .mainInfoRekening {
+    margin-bottom: 50px;
+}
+
+.mainContent .mainInfoRekening .infoRekeningTitle {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-bottom: 1rem;
+}
+
+.mainContent .mainInfoRekening .infoRekeningTitle .leftGrid p {
+    text-align: left;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.mainContent .mainInfoRekening .infoRekeningTitle .rightGrid p {
+    text-align: right;
+    color: #747e81;
+    text-decoration: underline;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.mainContent .mainInfoRekening .infoRekeningGrid {
+    border-radius: 20px;
+    padding: 2.5rem;
+    background-color: #E7FAFF;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    row-gap: 2rem;
+    vertical-align: middle;
+    align-items: center;
+}
+
+.mainContent .mainInfoRekening .infoRekeningGrid .leftGrid {
+    text-align: left;
+    width: 144px;
+}
+
+.mainContent .mainInfoRekening .infoRekeningGrid .leftGrid .rekeningImg {
+    width: 144px;
+}
+
+.mainContent .mainInfoRekening .infoRekeningGrid .rightGrid {
+    text-align: right;
+}
+
+.mainContent .mainInfoRekening .infoRekeningGrid .rightGrid p {
+    font-weight: 500;
+    text-align: right;
+}
+
+.mainContent .mainTransaction {
+    margin-bottom: 50px;
+}
+
+.mainContent .mainTransaction .mainTransactionGrid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    row-gap: 0.5rem;
+}
+
+.mainContent .mainTransaction .mainTransactionGrid .leftGrid {
+    text-align: left;
+}
+
+.mainContent .mainTransaction .mainTransactionGrid .rightGrid {
+    text-align: right;
+}
+
+.mainContent .mainTransaction .mainTransactionGrid2 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    row-gap: 0.5rem;
+}
+
+.mainContent .mainTransaction .mainTransactionGrid2 .leftGrid {
+    text-align: left;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.mainContent .mainTransaction .mainTransactionGrid2 .rightGrid {
+    text-align: right;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.mainContent .mainSubmit {
+    cursor: pointer;
+    background-color: #21B7E2;
+    border-radius: 30px;
+    width: 100%;
+    padding: 15px;
+    margin-top: 50px;
+    transition: ease 0.5s;
+}
+
+.mainContent .mainSubmit:hover {
+    box-shadow: 0px 0px 20px 1px #21B7E2;
+}
+
+.mainContent .mainSubmit p {
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+}
