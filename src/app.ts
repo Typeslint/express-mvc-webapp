@@ -1,3 +1,4 @@
+import "./utils/listener";
 import { Client, Pool } from "pg";
 import PGSession from "connect-pg-simple";
 import cors from "cors";
