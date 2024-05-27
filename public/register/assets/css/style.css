@@ -1,24 +1,19 @@
-/* 
-* © 2022 Muunatic. All rights reserved.
-*/
-
 * {
     user-select: none !important;
     -webkit-user-select: none !important;
     -moz-user-select: none !important;
     -o-user-select: none !important;
     -ms-user-select: none !important;
-    font-family: 'Comfortaa', sans-serif;
+    font-family: 'Poppins', sans-serif !important;
 }
 
 body {
-    user-select: none;
     letter-spacing: 1px;
-    color: black;
-    background-color: #303030;
+    color: #011627;
 }
 
 p {
+    font-size: 12px;
     margin: 0;
 }
 
@@ -27,74 +22,164 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
+i {
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
+
 a {
-    color: black;
     text-decoration: none;
 }
 
-a:hover {
-    color: black;
-    text-decoration: none;
+.main {
+    overflow: hidden;
+    max-width: 100dvw;
+    height: 100dvh;
 }
 
-hr {
+.mainGrid {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    height: 100%;
+    justify-items: center;
+    align-items: center;
+}
+
+.mainGrid .leftGrid {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #0069ff;
+    padding: 2.5rem;
+}
+
+.mainGrid .leftGrid .leftTitle {
+    z-index: 1;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mainGrid .leftGrid .leftTitle h4 {
     color: white;
 }
 
-input {
-    padding: 0.5rem;
-    border: none;
-    outline: none;
+.mainGrid .leftGrid .leftTitle p {
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.8);
 }
 
-/* .main {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1rem;
-    max-width: 55vw;
-} */
+.mainGrid .rightGrid {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 2.5rem;
+}
 
-.main {
-    position: absolute;
+.mainGrid .rightGrid .rightWrapper {
+    z-index: 1;
+    position: relative;
+    height: 100%;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    background-color: #eeefff;
+    transform: translate(-50%, -50%);
 }
 
-.mainlogin {
-    display: grid;
-    grid-template-columns: 30% 70%;
+.mainGrid .rightGrid .rightWrapper .rightForm {
+    width: max-content;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.mainForm {
-
+.mainGrid .rightGrid .rightWrapper .rightForm input[type=text] {
+    border: none;
+    background-color: #f7f7f8;
+    outline: none;
+    padding: 0.5rem 1rem 0.5rem 1rem;
 }
 
-.mainlogin .leftSide {
-    overflow: hidden;
-    width: 100%;
-    height: 480px;
+.mainGrid .rightGrid .rightWrapper .rightForm input[type=text]::placeholder {
+    font-size: 10px;
 }
 
-.mainlogin .leftSide .leftImage {
-    object-position: -100px 0px;
-    object-fit: cover;
-    max-height: 100%;
+.mainGrid .rightGrid .rightWrapper .rightForm input[type=password] {
+    border: none;
+    background-color: #f7f7f8;
+    outline: none;
+    padding: 0.5rem 1rem 0.5rem 1rem;
 }
 
-.mainlogin .rightSide .helloWorld {
-    margin-top: 2.5rem;
-    margin-left: 5rem;
+.mainGrid .rightGrid .rightWrapper .rightForm input[type=password]::placeholder {
+    font-size: 10px;
 }
 
-.mainlogin .rightSide .mainForm .formTitle {
-    margin-top: 2.5rem;
+.mainGrid .rightGrid .rightWrapper .rightForm label {
+    margin-bottom: 1rem;
+}
+
+.mainGrid .rightGrid .rightWrapper .rightForm .rightTitle {
     text-align: center;
+    margin-bottom: 2.5rem;
 }
 
-.mainlogin .rightSide .mainForm .inputUser {
-    margin-top: 2.5rem;
-    margin-left: 5rem;
-    width: 100%;
+.submitButton {
+    border: none;
+    background-color: white;
+    outline: solid 1px #384ad7;
+    color: #384ad7;
+
+    border-radius: 5px;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    transition: ease 0.25s, background-color ease 0.25s, outline ease 0.25s;
+}
+
+.submitButton:hover {
+    background-color: #384ad7;
+    color: white;
+}
+
+@media only screen and (max-width: 810px) {
+    .mainGrid {
+        display: block !important;
+        grid-template-columns: unset;
+        height: 100%;
+        justify-items: unset;
+        align-items: unset;
+    }
+
+    .mainGrid .leftGrid {
+        display: none !important;
+        visibility: hidden !important;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .mainGrid .rightGrid .rightWrapper .rightForm input[type=text] {
+        width: 280px;
+    }
+
+    .mainGrid .rightGrid .rightWrapper .rightForm {
+        width: max-content;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+@media only screen and (max-width: 320px) {
+    * {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    body {
+        display: none !important;
+        visibility: hidden !important;
+    }
 }
