@@ -1,5 +1,5 @@
 import "./utils/listener";
-import { Client, Pool } from "pg";
+import { Pool } from "pg";
 import PGSession from "connect-pg-simple";
 import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
@@ -8,22 +8,8 @@ import dotenv from "dotenv";
 import morgan from "morgan";
 dotenv.config();
 
-const pg: Client = new Client({
-    host: "localhost",
-    user: "postgres",
-    port: 5432,
-    password: "root",
-    database: "laundryku"
-});
-
 const poolcfg: Pool = new Pool({
-    connectionString: "postgres://postgres:root@localhost:5432/laundryku"
-});
-
-pg.connect().then(async (): Promise<void> => {
-    return console.log("Connecting PostgreSQL");
-}).catch((err: Error) => {
-    return console.error(err.message);
+    connectionString: process.env.DATABASE_URL
 });
 
 const app = express();
