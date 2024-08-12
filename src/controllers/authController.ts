@@ -5,7 +5,7 @@ import { defaultBackgroundPhoto, defaultProfilePhoto } from "../utils/base-64";
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
-const register = async (req: Request<unknown, never, userData>, res: Response, next: NextFunction): Promise<void> => {
+const register = async (req: Request<unknown, never, userData>, res: Response, next: NextFunction): Promise<Response | void> => {
     try {
         const { email, username, password } = req.body;
         const exist = await prisma.user.findFirst({
@@ -18,11 +18,10 @@ const register = async (req: Request<unknown, never, userData>, res: Response, n
         });
 
         if (exist) {
-            res.status(401).json({
+            return res.status(401).json({
                 status: 401,
                 message: "Unauthorized"
             });
-            return;
         }
 
         const encryptedPassword = await bcrypt.hash(password, 10);
@@ -49,17 +48,16 @@ const register = async (req: Request<unknown, never, userData>, res: Response, n
             }
         });
 
-        res.status(200).json({
+        return res.status(200).json({
             status: 200,
             message: "OK"
         });
-        return;
     } catch (error) {
         next(error);
     }
 };
 
-const login = async (req: Request<unknown, never, userData>, res: Response, next: NextFunction): Promise<void> => {
+const login = async (req: Request<unknown, never, userData>, res: Response, next: NextFunction): Promise<Response | void> => {
     try {
         const { email, password } = req.body;
 
@@ -70,51 +68,46 @@ const login = async (req: Request<unknown, never, userData>, res: Response, next
         });
 
         if (!users) {
-            res.status(401).json({
+            return res.status(401).json({
                 status: 401,
                 message: "Unauthorized"
             });
-            return;
         }
 
         const isPasswordCorrect = await bcrypt.compare(password, users?.password);
 
         if (!isPasswordCorrect) {
-            res.status(401).json({
+            return res.status(401).json({
                 status: 401,
                 message: "Unauthorized"
             });
-            return;
         }
 
         if (!email || !password) {
-            res.status(400).json({
+            return res.status(400).json({
                 status: 400,
                 message: "Bad Request"
             });
-            return;
         }
 
         if (!users) {
-            res.status(401).json({
+            return res.status(401).json({
                 status: 401,
                 message: "Unauthorized"
             });
-            return;
         }
 
         req.session.username = users.username;
-        res.status(200).json({
+        return res.status(200).json({
             status: 200,
             message: "OK"
         });
-        return;
     } catch (error) {
         next(error);
     }
 };
 
-const logout = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+const logout = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
     try {
         if (req.session.username) {
             req.session.destroy(async () => {
@@ -122,11 +115,10 @@ const logout = async (req: Request, res: Response, next: NextFunction): Promise<
                     return res.redirect("/home");
                 }
 
-                res.status(200).json({
+                return res.status(200).json({
                     status: 200,
                     message: "Logout Success"
                 });
-                return;
             });
         } else {
             res.status(400).json({

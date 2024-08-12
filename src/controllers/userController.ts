@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 import { uploadPhotoProfile, userMembership } from "../utils/interface";
 
-const profile = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+const profile = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
     try {
         const user = await prisma.user.findUnique({
             where: {
@@ -17,18 +17,17 @@ const profile = async (req: Request, res: Response, next: NextFunction): Promise
             }
         });
 
-        res.status(200).json({
+        return res.status(200).json({
             status: 200,
             message: "OK",
             ...user
         });
-        return;
     } catch (error) {
         next(error);
     }
 };
 
-const transaction = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+const transaction = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
     try {
         const order = await prisma.user.findUnique({
             where: {
@@ -39,18 +38,17 @@ const transaction = async (req: Request, res: Response, next: NextFunction): Pro
             }
         }).Order();
 
-        res.status(200).json({
+        return res.status(200).json({
             status: 200,
             message: "OK",
             data: order
         });
-        return;
     } catch (error) {
         next(error);
     }
 };
 
-const uploadPhoto = async (req: Request<unknown, never, uploadPhotoProfile>, res: Response, next: NextFunction): Promise<void> => {
+const uploadPhoto = async (req: Request<unknown, never, uploadPhotoProfile>, res: Response, next: NextFunction): Promise<Response | void> => {
     try {
         const { photo, backgroundPhoto } = req.body;
         const users = await prisma.user.findUnique({
@@ -69,17 +67,16 @@ const uploadPhoto = async (req: Request<unknown, never, uploadPhotoProfile>, res
             }
         });
 
-        res.status(201).json({
+        return res.status(201).json({
             status: 201,
             message: "Created"
         });
-        return;
     } catch (error) {
         next(error);
     }
 };
 
-const membership = async (req: Request<unknown, never, userMembership>, res: Response, next: NextFunction): Promise<void> => {
+const membership = async (req: Request<unknown, never, userMembership>, res: Response, next: NextFunction): Promise<Response | void> => {
     try {
         const { type } = req.body;
         const users = await prisma.user.findUnique({
@@ -89,11 +86,10 @@ const membership = async (req: Request<unknown, never, userMembership>, res: Res
         });
 
         if (!users) {
-            res.status(401).json({
+            return res.status(401).json({
                 status: 401,
                 message: "Unauthorized"
             });
-            return;
         }
 
         await prisma.membership.upsert({
@@ -111,17 +107,16 @@ const membership = async (req: Request<unknown, never, userMembership>, res: Res
             }
         });
 
-        res.status(200).json({
+        return res.status(200).json({
             status: 200,
             message: "OK"
         });
-        return;
     } catch (error) {
         next(error);
     }
 };
 
-const deleteMembership = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+const deleteMembership = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
     try {
         const users = await prisma.user.findUnique({
             where: {
@@ -130,11 +125,10 @@ const deleteMembership = async (req: Request, res: Response, next: NextFunction)
         });
 
         if (!users) {
-            res.status(401).json({
+            return res.status(401).json({
                 status: 401,
                 message: "Unauthorized"
             });
-            return;
         }
 
         await prisma.membership.update({
@@ -146,7 +140,11 @@ const deleteMembership = async (req: Request, res: Response, next: NextFunction)
                 userId: users?.id
             }
         });
-        return;
+
+        return res.status(200).json({
+            status: 200,
+            message: "OK"
+        });
     } catch (error) {
         next(error);
     }

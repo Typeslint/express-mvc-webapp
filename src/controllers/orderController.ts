@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 import { userOrder } from "../utils/interface";
 
-const order = async (req: Request<unknown, never, userOrder>, res: Response, next: NextFunction): Promise<void> => {
+const order = async (req: Request<unknown, never, userOrder>, res: Response, next: NextFunction): Promise<Response | void> => {
     const { name, phone, address, qty, services, tanggal, total } = req.body;
     try {
         const users = await prisma.user.findUnique({
@@ -34,11 +34,10 @@ const order = async (req: Request<unknown, never, userOrder>, res: Response, nex
             }
         });
 
-        res.status(200).json({
+        return res.status(200).json({
             status: 200,
             message: "OK"
         });
-        return;
     } catch (error) {
         next(error);
     }
