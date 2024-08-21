@@ -16,7 +16,6 @@ void (async () => {
             "Content-Type": "application/json"
         },
     }).then((res) => {
-        console.log(res);
         return res.json();
     }).then((data) => {
         if (data.status == 200) {
@@ -44,7 +43,6 @@ void (async () => {
                 'Content-Type': 'application/json'
             },
         }).then(async (res) => {
-            console.log(res);
             return res.json();
         }).then(async (result) => {
             const tableHeader = ` <th><p>Tanggal</p></th> <th><p>Nama</p></th> <th><p>Berat</p></th> <th><p>Pelayanan</p></th> <th><p>Antar/Kirim</p></th> <th><p>Alamat</p></th> <th><p>Harga</p></th>`;
@@ -119,8 +117,6 @@ document.getElementById('photoBackgroundInput').addEventListener('change', funct
                 backgroundPhoto: base64Data
             };
 
-            console.log(base64Data);
-
             try {
                 await fetch(`http://localhost:3000/api/users/profile/photo`, {
                     method: "POST",
@@ -130,10 +126,8 @@ document.getElementById('photoBackgroundInput').addEventListener('change', funct
                     },
                     body: JSON.stringify(jsonData)
                 }).then(async (res) => {
-                    console.log(res);
                     return res.json();
                 }).then(async (data) => {
-                    console.log(data);
                     alert("Data Berhasil Diubah");
                     if (data.message == "OK") {
                         return;
@@ -153,10 +147,8 @@ document.getElementById('photoBackgroundInput').addEventListener('change', funct
                         'Content-Type': 'application/json'
                     },
                 }).then(async (res) => {
-                    console.log(res);
                     return res.json();
                 }).then(async (data) => {
-                    console.log(data);
                     document.getElementById("userPhotoBackground").src = data.Profile.backgroundphoto;
                 });
             } catch (error) {
@@ -180,8 +172,6 @@ document.getElementById('photoInput').addEventListener('change', function () {
                 photo: base64Data
             };
 
-            console.log(base64Data);
-
             try {
                 await fetch(`http://localhost:3000/api/users/profile/photo`, {
                     method: "POST",
@@ -191,10 +181,8 @@ document.getElementById('photoInput').addEventListener('change', function () {
                     },
                     body: JSON.stringify(jsonData)
                 }).then(async (res) => {
-                    console.log(res);
                     return res.json();
                 }).then(async (data) => {
-                    console.log(data);
                     alert("Data Berhasil Diubah");
                     if (data.message == "OK") {
                         return;
@@ -214,10 +202,8 @@ document.getElementById('photoInput').addEventListener('change', function () {
                         'Content-Type': 'application/json'
                     },
                 }).then(async (res) => {
-                    console.log(res);
                     return res.json();
                 }).then(async (data) => {
-                    console.log(data);
                     document.getElementById("userPhoto").src = data.Profile.photo;
                 });
             } catch (error) {

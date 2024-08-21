@@ -74,13 +74,6 @@ function backButton() {
 }
 
 async function submitForm() {
-    console.log(qtyParams);
-    console.log(nameParams);
-    console.log(phoneParams);
-    console.log(addressParams);
-    console.log(serviceParams);
-    console.log(deliveryParams);
-    console.log(totalParams);
     const nowDate = new Date();
     if (totalParams) {
         let jsonData = {
@@ -103,10 +96,8 @@ async function submitForm() {
             },
             body: JSON.stringify(jsonData)
         }).then(async (res) => {
-            console.log(res);
             return res.json();
         }).then(async (data) => {
-            console.log(data);
             if (data.status == 200) {
                 alert("Pesanan Sudah Dibuat");
                 return window.location.href = "http://localhost:3000/home";

@@ -56,7 +56,6 @@ document.querySelectorAll(".servicesBox input[type=\"checkbox\"]").forEach((chec
 
         const checkedOptions = Array.from(document.querySelectorAll(".servicesBox input[type=\"checkbox\"]:checked")).map(checkbox => checkbox.id);
         serviceOption = checkedOptions;
-        console.log(serviceOption);
     });
 });
 
@@ -83,7 +82,6 @@ document.querySelectorAll(".deliveryBox input[type=\"checkbox\"]").forEach((chec
 
         const checkedOptions = Array.from(document.querySelectorAll(".deliveryBox input[type=\"checkbox\"]:checked")).map((checkbox) => checkbox.id);
         deliveryOption = checkedOptions;
-        console.log(deliveryOption);
     });
 });
 
@@ -97,12 +95,6 @@ async function submitForm() {
     nameValue = document.getElementById("usernameValue").value;
     phoneValue = document.getElementById("phoneValue").value;
     addressValue = document.getElementById("addressValue").value;
-    console.log(qtyValue);
-    console.log(nameValue);
-    console.log(phoneValue);
-    console.log(addressValue);
-    console.log(serviceOption);
-    console.log(deliveryOption);
     if (nameValue && phoneValue && addressValue && serviceOption && deliveryOption) {
         let jsonData = {
             qty: qtyValue,
@@ -123,21 +115,16 @@ async function submitForm() {
             },
             body: JSON.stringify(jsonData)
         }).then(async (res) => {
-            console.log(res);
             return res.json();
         }).then(async (data) => {
-            console.log(data);
             if (data.status == 200) {
-                alert("Pesanan Sudah Dibuat");
-                return;
+                return alert("Pesanan Sudah Dibuat");
             } else {
-                alert("Data Tidak Valid");
-                return;
+                return alert("Data Tidak Valid");
             }
         });
     } else {
-        alert("Data Tidak Lengkap");
-        return;
+        return alert("Data Tidak Lengkap");
     }
 
 }

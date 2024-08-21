@@ -64,7 +64,6 @@ document.querySelectorAll(".servicesBox input[type=\"checkbox\"]").forEach((chec
 
         const checkedOptions = Array.from(document.querySelectorAll(".servicesBox input[type=\"checkbox\"]:checked")).map(checkbox => checkbox.id);
         serviceOption = checkedOptions;
-        console.log(serviceOption);
     });
 });
 
@@ -97,7 +96,6 @@ document.querySelectorAll(".deliveryBox input[type=\"checkbox\"]").forEach((chec
             }
         });
         deliveryOption = checkedOptions;
-        console.log(deliveryOption);
     });
 });
 
@@ -111,12 +109,6 @@ async function submitForm() {
     nameValue = document.getElementById("usernameValue").value;
     phoneValue = document.getElementById("phoneValue").value;
     addressValue = document.getElementById("addressValue").value;
-    console.log(qtyValue);
-    console.log(nameValue);
-    console.log(phoneValue);
-    console.log(addressValue);
-    console.log(serviceOption);
-    console.log(deliveryOption);
     if (nameValue && phoneValue && addressValue && serviceOption && deliveryOption) {
         return window.location.href = `http://localhost:3000/pay?qty=${qtyValue}&name=${nameValue}&phone=${phoneValue}&address=${addressValue}&service=${serviceOption.join(", ")}&delivery=${deliveryOption}&total=0`;
     } else {

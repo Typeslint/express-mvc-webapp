@@ -16,7 +16,6 @@ void (async () => {
             "Content-Type": "application/json"
         },
     }).then((res) => {
-        console.log(res);
         return res.json();
     }).then((data) => {
         if (data.status == 200) {
@@ -41,7 +40,6 @@ async function getMembership(params) {
         },
         body: JSON.stringify(jsonData)
     }).then((res) => {
-        console.log(res);
         return res.json();
     }).then((data) => {
         if (data.status == 200) {
