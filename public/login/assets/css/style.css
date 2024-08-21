@@ -29,7 +29,18 @@ i {
 }
 
 a {
+    color: #011627;
     text-decoration: none;
+}
+
+#register {
+    margin-left: 0.5rem;
+    font-size: 12px;
+    color: #011627;
+}
+
+#register:hover {
+    color: #384ad7;
 }
 
 .main {

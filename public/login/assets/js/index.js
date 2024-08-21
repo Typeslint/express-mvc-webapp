@@ -1,6 +1,7 @@
 "use strict";
 
 (async () => {
+    document.getElementById("register").href = `${location.origin}/register`
     await fetch("http://localhost:3000/api/users/profile", {
     method: "GET",
     headers: {
@@ -8,7 +9,6 @@
         "Content-Type": "application/json"
     },
     }).then((res) => {
-        console.log(res);
         return res.json();
     }).then((data) => {
         if (data.status == 200) {
