@@ -2,25 +2,15 @@ import { NextFunction, Request, Response } from "../app";
 
 const checkSession = (req: Request, res: Response, next: NextFunction): void => {
     if (req.session.username) {
-        res.status(401).json({
-            status: 401,
-            message: "Kamu masih login menggunakan " + req.session.username
-        });
-        return;
+        return res.status(302).redirect(`${req.protocol}://${req.get("host")}`);
     }
-
     next();
 };
 
 const restrict = (req: Request, res: Response, next: NextFunction): void => {
     if (!req.session.username) {
-        res.status(401).json({
-            status: 401,
-            message: "Unauthorized"
-        });
-        return;
+        return res.status(302).redirect(`${req.protocol}://${req.get("host")}/login`);
     }
-
     next();
 };
 
