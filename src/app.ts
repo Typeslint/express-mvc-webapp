@@ -6,6 +6,7 @@ import express, { NextFunction, Request, Response } from "express";
 import session from "express-session";
 import dotenv from "dotenv";
 import morgan from "morgan";
+import path from "path";
 dotenv.config();
 
 const poolcfg: Pool = new Pool({
@@ -47,12 +48,15 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 app.use(morgan("dev"));
 
-app.listen(PORT, (): void => {
-    return console.info("Connecting to PORT " + PORT.toString());
-});
-
 app.use("/", web);
 app.use("/api", api);
+
+app.use<void>("/register", express.static(path.join(__dirname, "../public/register")));
+app.use<void>("/login", express.static(path.join(__dirname, "../public/login")));
+app.use<void>("/", express.static(path.join(__dirname, "../public/home")));
+app.use<void>("/profile", express.static(path.join(__dirname, "../public/profile")));
+app.use<void>("/order", express.static(path.join(__dirname, "../public/order")));
+app.use<void>("/pay", express.static(path.join(__dirname, "../public/pay")));
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction): void => {
     try {
@@ -70,6 +74,10 @@ app.use((req: Request, res: Response, next: NextFunction): void => {
     } catch (error) {
         next(error);
     }
+});
+
+app.listen(PORT, (): void => {
+    return console.info("Connecting to PORT " + PORT.toString());
 });
 
 export type { Request, Response, NextFunction };
