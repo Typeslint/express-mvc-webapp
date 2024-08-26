@@ -1,18 +1,14 @@
 import { Router } from "express";
-import { NextFunction, Request, Response } from "../app";
 import { restrict } from "../middlewares/middleware";
+import { homeView, loginView, orderView, payView, profileView, registerView } from "../controllers/baseController";
 
 const app = Router();
 
-app.use((req: Request, res: Response, next: NextFunction): void => {
-    if (req.session) {
-        req.session.touch();
-    }
-    next();
-});
-
-app.get("/profile", restrict);
-app.get("/pay", restrict);
-app.get("/order", restrict);
+app.get("/", restrict, homeView);
+app.get("/login", restrict, loginView);
+app.get("/register", restrict, registerView);
+app.get("/profile", restrict, profileView);
+app.get("/pay", restrict, payView);
+app.get("/order", restrict, orderView);
 
 export default app;
