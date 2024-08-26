@@ -1,9 +1,17 @@
 "use strict";
 
+$(window).on("load", function() {
+    $("#status").fadeOut(), $("#preloader").delay(350).fadeOut("slow"), $("body").delay(350).css({
+        overflow: "visible"
+    }), $(".mainauto").delay(350).css({
+        visibility: "visible"
+    })
+});
+
 const slider = document.getElementById("qty");
 const output = document.getElementById("qtyrange");
 
-output.innerHTML = slider.value;
+output.innerHTML = slider.value + " KG";
 slider.addEventListener("input", function() {
     output.innerHTML = slider.value + " KG";
 });
@@ -80,13 +88,19 @@ document.querySelectorAll(".deliveryBox input[type=\"checkbox\"]").forEach((chec
             deliveryBox.style.outline = "none";
         }
 
-        const checkedOptions = Array.from(document.querySelectorAll(".deliveryBox input[type=\"checkbox\"]:checked")).map((checkbox) => checkbox.id);
+        const checkedOptions = Array.from(document.querySelectorAll(".deliveryBox input[type=\"checkbox\"]:checked")).map((checkbox) => {
+            if (checkbox.id == "pickupdelivery") {
+                return "pickup%20%26%20delivery";
+            } else {
+                return checkbox.id;
+            }
+        });
         deliveryOption = checkedOptions;
     });
 });
 
 function backButton() {
-    window.location.href = "http://localhost:3000/home";
+    window.location.href = "http://localhost:3000";
     return;
 }
 
@@ -96,35 +110,9 @@ async function submitForm() {
     phoneValue = document.getElementById("phoneValue").value;
     addressValue = document.getElementById("addressValue").value;
     if (nameValue && phoneValue && addressValue && serviceOption && deliveryOption) {
-        let jsonData = {
-            qty: qtyValue,
-            name: nameValue,
-            phone: phoneValue,
-            address: addressValue,
-            services: {
-                service: serviceOption,
-                delivery: deliveryOption
-            },
-            total: 0
-        }
-        await fetch("http://localhost:3000/api/order", {
-            method: "POST",
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(jsonData)
-        }).then(async (res) => {
-            return res.json();
-        }).then(async (data) => {
-            if (data.status == 200) {
-                return alert("Pesanan Sudah Dibuat");
-            } else {
-                return alert("Data Tidak Valid");
-            }
-        });
+        return window.location.href = `http://localhost:3000/pay?qty=${qtyValue}&name=${nameValue}&phone=${phoneValue}&address=${addressValue}&service=${serviceOption.join(", ")}&delivery=${deliveryOption}&total=0`;
     } else {
-        return alert("Data Tidak Lengkap");
+        alert("Data Tidak Lengkap");
+        return;
     }
-
 }

@@ -13,7 +13,7 @@
     }).then((data) => {
         if (data.status == 200) {
             alert("Kamu masih login menggunakan " + data.username);
-            return window.location.href = "http://localhost:3000/home"
+            return window.location.href = "http://localhost:3000"
         } else {
             return;
         }

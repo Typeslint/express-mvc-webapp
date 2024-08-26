@@ -23,15 +23,18 @@
     <link type="text/css" charset="utf-8" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" referrerpolicy="no-referrer" crossorigin="anonymous"/>
     <link type="text/css" charset="utf-8" rel="stylesheet" href="assets/css/style.css"/>
     <link type="text/css" charset="utf-8" rel="stylesheet" href="assets/css/load.css"/>
-    <link type="text/css" charset="utf-8" rel="stylesheet" href="assets/css/pay.css"/>
 </head>
 <body>
-
+    <div id="preloader">
+        <div id="status">
+            <div class="uil-ring-css" style="transform: scale(0.58);"><div></div></div>
+        </div>
+    </div>
     <div class="main">
         <div class="mainNavbar">
             <div class="mainNavbarLeft">
                 <div class="navbarLeft">
-                    <img class="logoLaundryku" src="../home/assets/img/logo.png" alt="">
+                    <img class="logoLaundryku" src="../assets/img/logo.png" alt="">
                 </div>
             </div>
             <div class="mainNavbarRight">
@@ -44,9 +47,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="payPage">
-            <p>test</p>
         </div>
         <div class="mainContent">
             <div class="mainTitle">
@@ -71,7 +71,7 @@
                     <div class="divLabel">
                         <label for="washing">
                             <div class="optionImg">
-                                <img src="../home/assets/img/Washing.png" alt="Gambar A" class="checkbox-img">
+                                <img src="../assets/img/Washing.png" alt="Gambar A" class="checkbox-img">
                             </div>
                             <p class="checkbox-label">Washing</p>
                             <p class="checkbox-label2">Rp 5000/kg</p>
@@ -84,7 +84,7 @@
                     <div class="divLabel">
                         <label for="ironing">
                             <div class="optionImg">
-                                <img src="../home/assets/img/Ironing.png" alt="Gambar B" class="checkbox-img">
+                                <img src="../assets/img/Ironing.png" alt="Gambar B" class="checkbox-img">
                             </div>
                             <p class="checkbox-label">Ironing</p>
                             <p class="checkbox-label2">Rp 6000/kg</p>
@@ -97,7 +97,7 @@
                     <div class="divLabel">
                         <label for="drycleaning">
                             <div class="optionImg">
-                                <img src="../home/assets/img/DryClean.png" alt="Gambar B" class="checkbox-img">
+                                <img src="../assets/img/DryClean.png" alt="Gambar B" class="checkbox-img">
                             </div>
                             <p class="checkbox-label">Dry Cleaning</p>
                             <p class="checkbox-label2">Rp 7000/kg</p>
@@ -112,7 +112,7 @@
                     <div class="divLabel">
                         <label for="pickup">
                             <div class="optionImg">
-                                <img src="../home/assets/img/Pickup.png" alt="Gambar A" class="checkbox-img">
+                                <img src="../assets/img/Pickup.png" alt="Gambar A" class="checkbox-img">
                             </div>
                             <p class="checkbox-label">Pickup</p>
                             <p class="checkbox-label2">Rp. 5000</p>
@@ -125,7 +125,7 @@
                     <div class="divLabel">
                         <label for="delivery">
                             <div class="optionImg">
-                                <img src="../home/assets/img/Delivery.png" alt="Gambar B" class="checkbox-img">
+                                <img src="../assets/img/Delivery.png" alt="Gambar B" class="checkbox-img">
                             </div>
                             <p class="checkbox-label">Delivery</p>
                             <p class="checkbox-label2">Rp. 5000</p>
@@ -138,7 +138,7 @@
                     <div class="divLabel">
                         <label for="pickupdelivery">
                             <div class="optionImg">
-                                <img src="../home/assets/img/PickupDelivery.png" alt="Gambar C" class="checkbox-img">
+                                <img src="../assets/img/PickupDelivery.png" alt="Gambar C" class="checkbox-img">
                             </div>
                             <p class="checkbox-label">Pickup & Delivery</p>
                             <p class="checkbox-label2">Rp. 10000</p>
@@ -151,7 +151,7 @@
                     <p>Berat Barang (Kg)</p>
                 </div>
                 <div class="mainDescTransaction">
-                    <input id="qty" name="qty" type="range" min="0" max="100" step="1"><span id="qtyrange" class="rangeValue"></span>
+                    <input id="qty" name="qty" type="range" min="0" max="100" step="1" value="5"><span id="qtyrange" class="rangeValue"></span>
                     <!-- <div class="leftDesc">
                         <p>Biaya Layanan</p>
                         <p>Biaya Barang</p>

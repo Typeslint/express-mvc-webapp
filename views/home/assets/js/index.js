@@ -8,26 +8,6 @@ $(window).on("load", function() {
     })
 });
 
-void (async () => {
-    await fetch("http://localhost:3000/api/users/profile", {
-        method: "GET",
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-        },
-    }).then((res) => {
-        return res.json();
-    }).then((data) => {
-        if (data.status == 200) {
-            document.getElementById("checkSession").innerHTML = `<i class="bi bi-person-circle"></i> Hello, ${data.username}. Kunjungi profilmu?`;
-            return;
-        } else {
-            document.getElementById("checkSession").innerHTML = "Login/Register";
-            return;
-        }
-    });
-})();
-
 async function getMembership(params) {
     let jsonData = {
         type: params
@@ -62,22 +42,5 @@ async function checkSession() {
         return window.location.href = "http://localhost:3000/login";
     } else {
         return window.location.href = "http://localhost:3000/profile";
-        // await fetch(`http://localhost:3000/api/logout`, {
-        //     method: "POST",
-        //     headers: {
-        //         "Accept": "application/json",
-        //         "Content-Type": "application/json"
-        //     },
-        // }).then((res) => {
-        //     return res.json();
-        // }).then((data) => {
-        //     if (data.status == 200) {
-        //         alert("Logout Berhasil")
-        //         return window.location.reload();
-        //     } else {
-        //         alert("Terjadi Kesalahan");
-        //         return window.location.reload();
-        //     }
-        // });
     }
 }

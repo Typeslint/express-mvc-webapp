@@ -17,12 +17,12 @@ const app = express();
 const PORT = 3000;
 const pgSession = PGSession(session);
 
-app.use(cors({
+const options = {
     origin: ["http://localhost:3000"],
     methods: "GET, POST, PUT, DELETE",
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
-}));
+};
 
 app.use(session({
     store: new pgSession({
@@ -43,20 +43,25 @@ app.use(session({
 import web from "./routes/web";
 import api from "./routes/api";
 
+app.use(cors(options));
+
+app.set("view engine", "ejs");
+app.set("views", path.resolve("views"));
+
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 app.use(morgan("dev"));
 
+app.use<void>("/register", express.static(path.join(__dirname, "../views/register")));
+app.use<void>("/login", express.static(path.join(__dirname, "../views/login")));
+app.use<void>("/", express.static(path.join(__dirname, "../views/home")));
+app.use<void>("/profile", express.static(path.join(__dirname, "../views/profile")));
+app.use<void>("/order", express.static(path.join(__dirname, "../views/order")));
+app.use<void>("/pay", express.static(path.join(__dirname, "../views/pay")));
+
 app.use("/", web);
 app.use("/api", api);
-
-app.use<void>("/register", express.static(path.join(__dirname, "../public/register")));
-app.use<void>("/login", express.static(path.join(__dirname, "../public/login")));
-app.use<void>("/", express.static(path.join(__dirname, "../public/home")));
-app.use<void>("/profile", express.static(path.join(__dirname, "../public/profile")));
-app.use<void>("/order", express.static(path.join(__dirname, "../public/order")));
-app.use<void>("/pay", express.static(path.join(__dirname, "../public/pay")));
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction): void => {
     try {
@@ -77,7 +82,7 @@ app.use((req: Request, res: Response, next: NextFunction): void => {
 });
 
 app.listen(PORT, (): void => {
-    return console.info("Connecting to PORT " + PORT.toString());
+    return console.info("Connecting to PORT ", PORT);
 });
 
 export type { Request, Response, NextFunction };

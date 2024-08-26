@@ -46,7 +46,13 @@
                         <p id="backButton" onclick="backButton();">Back</p>
                     </div>
                     <div class="navbarLoginRegister">
-                        <p id="checkSession" onclick="checkSession();">Login/Register</p>
+                        <p id="checkSession" onclick="checkSession();">
+                            <% if (session.username) { %>
+                                <i class="bi bi-person-circle"></i> Hello, <%= session.username %>. Kunjungi profilmu?
+                            <% } else { %>
+                                Login/Register
+                            <% } %>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -55,23 +61,23 @@
             <div class="userProfileWrapper">
                 <div class="bannerProfile">
                     <label style="width: 100%;">
-                        <img id="userPhotoBackground" class="bannerImg" src="../home/assets/img/defaultbackground.jpg" alt="">
+                        <img id="userPhotoBackground" class="bannerImg" src="<%= profile.backgroundphoto ? profile.backgroundphoto : "../home/assets/img/defaultbackground.jpg" %> alt="">
                         <input id="photoBackgroundInput" type="file" accept="image/jpeg" name="" style="display: none;">
                     </label>
                 </div>
                 <div class="userProfile">
                     <div class="userMainProfile">
                         <label>
-                            <img id="userPhoto" class="userImg" src="../home/assets/img/default.jpg" alt="">
+                            <img id="userPhoto" class="userImg" src="<%= profile.photo ? profile.photo : "../home/assets/img/default.jpg" %>" alt="">
                             <input id="photoInput" type="file" accept="image/jpeg" name="" style="display: none;">
                         </label>
-                        <h1 id="usernameProfile" class="usernameProfile">user</h1>
-                        <h6 id="usernameEmail" class="usernameEmail">user@gmail.com</h6>
+                        <h1 id="usernameProfile" class="usernameProfile"><%= session.username %></h1>
+                        <h6 id="usernameEmail" class="usernameEmail"><%= email ? email : "-" %></h6>
                     </div>
                     <div class="userOtherProfile">
-                        <p id="noTelp">No. Telp: +62 0000 0000 000</p>
-                        <p id="alamatUser">Alamat: -</p>
-                        <p id="statusMembership">Membership: -</p>
+                        <p id="noTelp">No. Telp: <%= profile.phone ? profile.phone : "-" %></p>
+                        <p id="alamatUser">Alamat: <%= profile.address ? profile.address : "-" %></p>
+                        <p id="statusMembership">Membership: <%= membership.type ? (membership.type !== "undefined" ? membership.type : "-") : "-" %></p>
                     </div>
                 </div>
             </div>
@@ -82,6 +88,48 @@
                     </div>
                     <table id="dataHeader">
                         <tr id="dataSetoran">
+                            <tr>
+                                <th><p>Tanggal</p></th>
+                                <th><p>Nama</p></th>
+                                <th><p>Berat</p></th>
+                                <th><p>Pelayanan</p></th>
+                                <th><p>Antar/Kirim</p></th>
+                                <th><p>Alamat</p></th>
+                                <th><p>Harga</p></th>
+                            </tr>
+                            <% if (order && order.length > 0) { %>
+                                <% order.forEach(function(item) { %>
+                                    <% 
+                                        const dateObject = new Date(item.tanggal);
+                                        const options = {
+                                            year: "numeric",
+                                            month: "long",
+                                            day: "numeric",
+                                            hour: "2-digit",
+                                            minute: "2-digit",
+                                            timeZone: "Asia/Jakarta"
+                                        };
+                                        const dateFormatter = new Intl.DateTimeFormat("id-ID", options);
+                                        const formattedDate = dateFormatter.format(dateObject);
+                        
+                                        const currencyFormatter = new Intl.NumberFormat("id-ID", {
+                                            style: "currency",
+                                            currency: "IDR",
+                                            maximumFractionDigits: 0
+                                        });
+                                        const formattedTotal = currencyFormatter.format(item.total);
+                                    %>
+                                    <tr>
+                                        <td><%= formattedDate %></td>
+                                        <td><%= item.name %></td>
+                                        <td><%= item.qty %> KG</td>
+                                        <td><%= item.services %></td>
+                                        <td><%= item.delivery %></td>
+                                        <td><%= item.address %></td>
+                                        <td><%= formattedTotal %></td>
+                                    </tr>
+                                <% }); %>
+                            <% } %>
                         </tr>
                     </table>
                 </div>
