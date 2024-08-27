@@ -6,7 +6,7 @@ This repository contains an MVC (Model-View-Controller) web application built wi
 
 Make sure you have the following installed:
 
--   Node.js: (>= 18.20.3)
+-   Node.js: (>= 18.20.4)
 -   NPM: (>= 10.7.0)
 -   PostgreSQL 16
 
