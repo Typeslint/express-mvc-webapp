@@ -34,9 +34,13 @@ const transaction = async (req: Request, res: Response, next: NextFunction): Pro
                 username: req.session.username
             },
             select: {
-                Order: true
+                Order: {
+                    orderBy: {
+                        tanggal: "desc"
+                    }
+                }
             }
-        }).Order();
+        });
 
         return res.status(200).json({
             status: 200,
