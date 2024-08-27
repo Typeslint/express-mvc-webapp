@@ -112,7 +112,7 @@ const logout = async (req: Request, res: Response, next: NextFunction): Promise<
         if (req.session.username) {
             req.session.destroy(async () => {
                 if (req.method === "GET") {
-                    return res.redirect("/home");
+                    return res.redirect("/");
                 }
 
                 return res.status(200).json({
