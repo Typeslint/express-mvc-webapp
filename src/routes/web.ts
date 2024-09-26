@@ -4,9 +4,9 @@ import { homeView, loginView, orderView, payView, profileView, registerView } fr
 
 const app = Router();
 
-app.get("/", restrict, homeView);
-app.get("/login", restrict, loginView);
-app.get("/register", restrict, registerView);
+app.get("/", homeView);
+app.get("/login", loginView);
+app.get("/register", registerView);
 app.get("/profile", restrict, profileView);
 app.get("/pay", restrict, payView);
 app.get("/order", restrict, orderView);
