@@ -20,20 +20,17 @@ const loginView = async (req: Request, res: Response, next: NextFunction): Promi
 
 const homeView = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
     try {
-        const session = await prisma.user.findUnique({
-            where: {
-                username: req.session.username
-            },
-            select: {
-                id: true,
-                username: true
-            }
-        });
+        let session = null;
 
-        if (!session) {
-            return res.status(404).json({
-                status: 404,
-                message: "User not found"
+        if (req?.session?.username) {
+            session = await prisma.user.findUnique({
+                where: {
+                    username: req?.session?.username
+                },
+                select: {
+                    id: true,
+                    username: true
+                }
             });
         }
 
