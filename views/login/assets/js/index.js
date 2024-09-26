@@ -39,7 +39,7 @@ async function getFetch() {
     }).then(async (data) => {
         if (data.status == 200) {
             alert("Login Berhasil");
-            return window.location.href = "http://localhost:3000/home";
+            return window.location.href = "http://localhost:3000";
         } else {
             alert("Login Gagal");
             return;

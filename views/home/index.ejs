@@ -49,7 +49,7 @@
                     </div>
                     <div class="navbarLoginRegister">
                         <p id="checkSession" onclick="checkSession();">
-                            <% if (session.username) { %>
+                            <% if (session?.username) { %>
                                 <i class="bi bi-person-circle"></i> Hello, <%= session.username %>. Kunjungi profilmu?
                             <% } else { %>
                                 Login/Register
